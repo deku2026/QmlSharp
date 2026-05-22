@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>QmlSharp.DevTools</AssemblyName>
+    <RootNamespace>QmlSharp.DevTools</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" />
+    <ProjectReference Include="..\QmlSharp.Compiler\QmlSharp.Compiler.csproj" />
+    <ProjectReference Include="..\QmlSharp.Host\QmlSharp.Host.csproj" />
+    <ProjectReference Include="..\QmlSharp.Build\QmlSharp.Build.csproj" />
+  </ItemGroup>
+</Project>
