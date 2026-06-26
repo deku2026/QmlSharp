@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v5
@@ -126,7 +126,7 @@ jobs:
           echo "FASTBuild cache: ${fb_cache}"
 
       - name: Restore FASTBuild compilation cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ steps.fbcache.outputs.path }}
           key: fbcache-macos-${{ github.sha }}

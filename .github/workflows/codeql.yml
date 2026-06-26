@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup .NET SDK
         if: matrix.language == 'csharp'
@@ -124,7 +124,7 @@ jobs:
 
       - name: Restore FASTBuild compilation cache
         if: matrix.language == 'c-cpp'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ steps.fbcache.outputs.path }}
           key: fbcache-codeql-linux-${{ github.sha }}
