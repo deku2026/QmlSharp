@@ -35,11 +35,11 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup .NET SDK
         if: matrix.language == 'csharp'
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           global-json-file: global.json
 
@@ -124,7 +124,7 @@ jobs:
 
       - name: Restore FASTBuild compilation cache
         if: matrix.language == 'c-cpp'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ steps.fbcache.outputs.path }}
           key: fbcache-codeql-linux-${{ github.sha }}
@@ -138,7 +138,7 @@ jobs:
           echo "FASTBuild: $(FBuild -version | head -n 1)"
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v4.37.3
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
@@ -155,7 +155,7 @@ jobs:
 
       - name: Autobuild
         if: matrix.build-mode == 'autobuild'
-        uses: github/codeql-action/autobuild@v4
+        uses: github/codeql-action/autobuild@v4.37.3
 
       - name: Configure native build
         if: matrix.language == 'c-cpp'
@@ -182,6 +182,6 @@ jobs:
           fi
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v4.37.3
         with:
           category: "/language:${{ matrix.language }}"
